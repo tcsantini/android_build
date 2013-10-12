@@ -51,7 +51,7 @@ except:
     device = product
 
 if not depsonly:
-    print("Device %s not found. Attempting to retrieve device repository from CyanogenMod Github (http://github.com/CyanogenMod)." % device)
+    print("Device %s not found. Attempting to retrieve device repository from Hellybean Github (http://github.com/Hellybean)." % device)
 
 repositories = []
 
@@ -71,7 +71,7 @@ def add_auth(githubreq):
 
 page = 1
 while not depsonly:
-    githubreq = urllib.request.Request("https://api.github.com/users/CyanogenMod/repos?per_page=200&page=%d" % page)
+    githubreq = urllib.request.Request("https://api.github.com/users/Hellybean/repos?per_page=200&page=%d" % page)
     add_auth(githubreq)
     result = json.loads(urllib.request.urlopen(githubreq).read().decode())
     if len(result) == 0:
@@ -173,9 +173,9 @@ def add_to_manifest(repositories, fallback_branch = None):
             print('%s already exists' % (repo_name))
             continue
 
-        print('Adding dependency: DerTeufel/%s -> %s' % (repo_name, repo_target))
+        print('Adding dependency: Hellybean/%s -> %s' % (repo_name, repo_target))
         project = ElementTree.Element("project", attrib = { "path": repo_target,
-            "remote": "github", "name": "DerTeufel/%s" % repo_name })
+            "remote": "github", "name": "Hellybean/%s" % repo_name })
 
         if 'branch' in repository:
             project.set('revision',repository['branch'])
@@ -206,7 +206,7 @@ def fetch_dependencies(repo_path, fallback_branch = None):
         fetch_list = []
 
         for dependency in dependencies:
-            if not is_in_manifest("DerTeufel/%s" % dependency['repository']):
+            if not is_in_manifest("Hellybean/%s" % dependency['repository']):
                 fetch_list.append(dependency)
                 syncable_repos.append(dependency['target_path'])
 
@@ -286,4 +286,4 @@ else:
             print("Done")
             sys.exit()
 
-print("Repository for %s not found in the CyanogenMod Github repository list. If this is in error, you may need to manually add it to your local_manifests/roomservice.xml." % device)
+print("Repository for %s not found in the Hellybean Github repository list. If this is in error, you may need to manually add it to your local_manifests/roomservice.xml." % device)
