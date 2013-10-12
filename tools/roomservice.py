@@ -173,9 +173,9 @@ def add_to_manifest(repositories, fallback_branch = None):
             print('%s already exists' % (repo_name))
             continue
 
-        print('Adding dependency: DerTeufel/%s -> %s' % (repo_name, repo_target))
+        print('Adding dependency: Hellybean/%s -> %s' % (repo_name, repo_target))
         project = ElementTree.Element("project", attrib = { "path": repo_target,
-            "remote": "github", "name": "DerTeufel/%s" % repo_name })
+            "remote": "github", "name": "Hellybean/%s" % repo_name })
 
         if 'branch' in repository:
             project.set('revision',repository['branch'])
@@ -206,7 +206,7 @@ def fetch_dependencies(repo_path, fallback_branch = None):
         fetch_list = []
 
         for dependency in dependencies:
-            if not is_in_manifest("DerTeufel/%s" % dependency['repository']):
+            if not is_in_manifest("Hellybean/%s" % dependency['repository']):
                 fetch_list.append(dependency)
                 syncable_repos.append(dependency['target_path'])
 
