@@ -1452,6 +1452,18 @@ ifneq ($(TARGET_CUSTOM_RELEASETOOL),)
 endif
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(CM_TARGET_PACKAGE)
 	$(hide) $(MD5SUM) $(CM_TARGET_PACKAGE) > $(CM_TARGET_PACKAGE).md5sum
+	@echo -e ${CL_RED}"                                     "${CL_RST}
+	@echo -e ${CL_RED}"    )                   )            "${CL_RST}
+	@echo -e ${CL_RED}" ( /(   )   (   (    ( /(          ) "${CL_RST}
+	@echo -e ${CL_RED}" )\())  )(  )\  )\   )\())   )  ( /( "${CL_RST}
+	@echo -e ${CL_RED}"((_)\   /)\((_)((_) ((_)\ ( /(  )\())"${CL_RST}
+	@echo -e ${CL_RED}" _((_) /((_)_) )_/ )_(((_))(_))(_))/ "${CL_RST}
+	@echo -e ${CL_RED}"| || |(_)) | | | | | |/ /((_)_ | |_  "${CL_RST}
+	@echo -e ${CL_RED}"| __ |/ -_)| | | | | ' < / _' ||  _| "${CL_RST}
+	@echo -e ${CL_RED}"|_||_|\___||_| |_| |_|\_\\__,_| \__| "${CL_RST}
+	@echo -e ${CL_RED}"                                     "${CL_RST}
+	@echo -e ${CL_RED}"                                     "${CL_RST}
+	@echo -e ${CL_RED}"                                     "${CL_RST}
 	@echo -e ${CL_RED}"Package Complete: $(CM_TARGET_PACKAGE)"${CL_RST}
 
 # -----------------------------------------------------------------
