@@ -871,10 +871,8 @@ ifdef is_tests_build
 endif
 
 systemimage-squisher: $(INTERNAL_SYSTEMIMAGE_FILES)
-ifeq ($(TARGET_SYSTEMIMAGE_USE_SQUISHER),true)
 	@echo -e ${CL_RED}"Optimizing PNGs to make you Hellkat ROM more awesome!"${CL_RST}
 	$(hide) APKCERTS=$(APKCERTS_FILE) ./vendor/cm/tools/squisher
-endif
 
 .PHONY: systemimage-squisher
 
